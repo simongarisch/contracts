@@ -1,7 +1,10 @@
+try:
+    from collections.abc import Set
+except:
+    from collections import Set
 from ..interface import Contract, ContractNotRespected, describe_type
 from ..syntax import (Keyword, O, S, W, add_contract, add_keyword,
     contract_expression)
-import collections
 
 
 class ASet(Contract):
@@ -13,7 +16,7 @@ class ASet(Contract):
         self.elements_contract = elements_contract
 
     def check_contract(self, context, value, silent):
-        if not isinstance(value, collections.Set):
+        if not isinstance(value, Set):
             error = 'Expected a set, got %r.' % describe_type(value)
             raise ContractNotRespected(self, error, value, context)
 

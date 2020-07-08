@@ -1,5 +1,7 @@
-import collections
-
+try:
+    import collections.abc as abc
+except:
+    import collections as abc
 
 
 def ist(C):
@@ -16,27 +18,22 @@ def m_new_contract(name, f):
     Extension.registrar[name] = CheckCallable(f)
     
 
-m_new_contract('Container', ist(collections.Container))
+m_new_contract('Container', ist(abc.Container))
 # todo: Iterable(x)
-m_new_contract('Iterable', ist(collections.Iterable))
-
-m_new_contract('Hashable', ist(collections.Hashable))
-
-
-
-m_new_contract('Iterator', ist(collections.Iterator))
-m_new_contract('Sized', ist(collections.Sized))
-m_new_contract('Callable', ist(collections.Callable))
-m_new_contract('Sequence', ist(collections.Sequence))
-m_new_contract('Set', ist(collections.Set))
-m_new_contract('MutableSequence', ist(collections.MutableSequence))
-m_new_contract('MutableSet', ist(collections.MutableSet))
-m_new_contract('Mapping', ist(collections.Mapping))
-m_new_contract('MutableMapping', ist(collections.MutableMapping))
-#new_contract('MappingView', ist(collections.MappingView))
-#new_contract('ItemsView', ist(collections.ItemsView))
-#new_contract('ValuesView', ist(collections.ValuesView))
-
+m_new_contract('Iterable', ist(abc.Iterable))
+m_new_contract('Hashable', ist(abc.Hashable))
+m_new_contract('Iterator', ist(abc.Iterator))
+m_new_contract('Sized', ist(abc.Sized))
+m_new_contract('Callable', ist(abc.Callable))
+m_new_contract('Sequence', ist(abc.Sequence))
+m_new_contract('Set', ist(abc.Set))
+m_new_contract('MutableSequence', ist(abc.MutableSequence))
+m_new_contract('MutableSet', ist(abc.MutableSet))
+m_new_contract('Mapping', ist(abc.Mapping))
+m_new_contract('MutableMapping', ist(abc.MutableMapping))
+#new_contract('MappingView', ist(abc.MappingView))
+#new_contract('ItemsView', ist(abc.ItemsView))
+#new_contract('ValuesView', ist(abc.ValuesView))
 
 # Not a lambda to have better messages
 def is_None(x): 

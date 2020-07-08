@@ -5,7 +5,7 @@ I have configured these two CI services:
 - Travis
 - Shippable
 
-because hey allow to run on multiple versions of Python.
+because they allow to run on multiple versions of Python.
 
 Patches are welcome to fix the failing cases!
 
